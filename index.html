@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landscapes</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <section>
+        <div class="bannerVideo" id="slideShow">
+            <video src="./video/Mexico.mp4" autoplay muted loop class="active"></video>
+            <video src="./video/Egypt.mp4" autoplay muted loop></video>
+            <video src="./video/Makkah.mp4" autoplay muted loop></video>
+            <video src="./video/Uzbekistan.mp4" autoplay muted loop></video>
+        </div>
+        <div class="container">
+            <header id="navbar">
+                <a href="#" class="logo">World</a>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Distination</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <span class="menuIcon" onclick="toggleMenu();"></span>
+            </header>
+            <div class="content">
+                <div class="bannerText" id="slideShowText">
+                    <div class="active">
+                        <h2>Mexico</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste sunt distinctio magnam. Eius, accusantium? Nihil, reprehenderit! Quasi, officia! Dolore, illum. Nesciunt similique sit officiis repellendus soluta ratione quam modi fugiat.</p>
+                    </div>
+                    <div>
+                        <h2>Planet</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste sunt distinctio magnam. Eius, accusantium? Nihil, reprehenderit! Quasi, officia! Dolore, illum. Nesciunt similique sit officiis repellendus soluta ratione quam modi fugiat.</p>
+                    </div>
+                    <div>
+                        <h2>Makkah</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste sunt distinctio magnam. Eius, accusantium? Nihil, reprehenderit! Quasi, officia! Dolore, illum. Nesciunt similique sit officiis repellendus soluta ratione quam modi fugiat.</p>
+                    </div>
+                    <div>
+                        <h2>Uzbekistan</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste sunt distinctio magnam. Eius, accusantium? Nihil, reprehenderit! Quasi, officia! Dolore, illum. Nesciunt similique sit officiis repellendus soluta ratione quam modi fugiat.</p>
+                    </div>
+                </div>
+            </div>
+            <ul class="sci">
+                <li><a href="https://www.facebook.com/jaloliddin.yusupov.9085" target="_blank"><img src="./img/facebook.png" alt=""></a></li>
+                <li><a href="#"><img src="./img/twitter.png" alt=""></a></li>
+                <li><a href="https://instagram.com/y_jaloliddin?igshid=1lvedm51wry4f" target="_blank"><img src="./img/instagram.png" alt=""></a></li>
+            </ul>
+
+            <ul class="controls">
+                <li onclick="prevSlide();prevSlideText();"><img src="./img/left.png" alt="Left Button" ></li>
+                <li  onclick="nextSlide();nextSlideText();"><img src="./img/right.png" alt="Right Button"></li>
+            </ul>
+        </div>
+    </section>
+    <script>
+        const slideShow=document.getElementById('slideShow');
+        const slides=slideShow.getElementsByTagName('video');
+        var index=0;
+
+        function  nextSlide(){
+            slides[index].classList.remove('active');
+            index=(index+1)%slides.length;
+            slides[index].classList.add('active');
+        }
+        function prevSlide() {
+            slides[index].classList.remove('active');
+            index=(index-1+slides.length)%slides.length;
+            slides[index].classList.add('active');
+        }
+
+        const slideShowText=document.getElementById('slideShowText');
+        const slidesText=slideShowText.getElementsByTagName('div');
+        var i=0;
+
+        function  nextSlideText(){
+            slidesText[i].classList.remove('active');
+            i=(i+1)%slidesText.length;
+            slidesText[i].classList.add('active');
+        }
+        function prevSlideText() {
+            slidesText[i].classList.remove('active');
+            i=(i-1+slidesText.length)%slidesText.length;
+            slidesText[i].classList.add('active');
+        }
+        function toggleMenu() {
+            const menu=document.querySelector('.menuIcon');
+            const navbar=document.getElementById('navbar');
+            menu.classList.toggle('active')
+            navbar.classList.toggle('active')
+        }
+    </script>
+</body>
+</html>
